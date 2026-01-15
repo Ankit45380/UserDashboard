@@ -1,0 +1,264 @@
+.dashboard-container {
+  padding: 30px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1c4980;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+}
+
+.btn-primary-custom {
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  font-weight: 500;
+  text-transform: none !important;
+  background-color: #383838 !important;
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.users-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.users-section h2 {
+  font-size: 24px;
+  color: #333;
+  padding: 12px;
+  margin-bottom: 0px;
+  font-weight: 600;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-header {
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #e0e0e0;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.table-cell-action {
+  text-align: center;
+}
+
+.header-cell {
+  padding: 15px 12px;
+  color: #555;
+  font-weight: 600;
+  border-right: 1px solid #e8e8e8;
+}
+
+.header-cell:last-child {
+  border-right: none;
+}
+
+.table-row {
+  border-bottom: 1px solid #e8e8e8;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.text-muted {
+  color: #888 !important;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-badge.admin {
+  background-color: #e8eaf6;
+  color: #3f51b5;
+}
+
+.role-badge.editor {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+
+.role-badge.viewer {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.delete-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.chart-section {
+  background-color: white;
+  border-radius: 8px;
+  padding-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-section h2 {
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+  width: 100%;
+  border-bottom: 2px solid #f0f0f0;
+  padding: 15px;
+}
+
+.chart-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+#roleChart {
+  max-width: 100%;
+  max-height: 300px !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+  .users-section,
+  .chart-section {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .add-user-btn {
+    width: 100%;
+  }
+
+  .users-section,
+  .chart-section {
+    padding: 15px;
+  }
+
+  .header-cell,
+  .table-cell {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  .table-cell {
+    text-align: center;
+  }
+
+  .role-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .delete-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  #roleChart {
+    max-width: 100%;
+  }
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  border-top: 1px solid #e8e8e8;
+  background-color: #fafafa;
+}
+
+.pagination-btn {
+  background: none !important;
+  border: none !important;
+  color: #333 !important;
+  font-size: 24px !important;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px !important;
+  transition: color 0.3s ease;
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-block !important;
+  line-height: 1;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  color: #1c4980 !important;
+}
+
+.pagination-btn:disabled {
+  color: #ccc !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.page-info {
+  font-weight: 600;
+  color: #333;
+  min-width: 150px;
+  text-align: center;
+  font-size: 14px;
+}

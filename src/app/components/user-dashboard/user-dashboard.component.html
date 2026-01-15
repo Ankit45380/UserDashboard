@@ -1,0 +1,79 @@
+<div class="dashboard-container">
+  <div class="header">
+    <h1>User Dashboard</h1>
+    <button
+      mat-raised-button
+      class="btn-primary-custom"
+      (click)="openUserForm()"
+    >
+      + Add User
+    </button>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-lg-8">
+      <div class="users-section">
+        <h2>Users</h2>
+        <div *ngIf="users.length > 0; else noUsers" class="table-wrapper">
+          <div class="table-header row">
+            <div class="col-4 header-cell"><strong>Name</strong></div>
+            <div class="col-4 header-cell"><strong>Email</strong></div>
+            <div class="col-2 header-cell"><strong>Role</strong></div>
+            <div class="col-2 header-cell"><strong>Actions</strong></div>
+          </div>
+
+          <!-- Table Rows - Using Pagination -->
+          <div *ngFor="let user of getDisplayedUsers()" class="table-row row">
+            <div class="col-4 table-cell">{{ user.name }}</div>
+            <div class="col-4 table-cell">{{ user.email }}</div>
+            <div class="col-2 table-cell table-cell-action">
+              <span [ngClass]="'role-badge ' + user.role.toLowerCase()">{{ user.role }}</span>
+            </div>
+            <div class="col-2 table-cell table-cell-action">
+              <button
+                (click)="deleteUser(user.id)"
+                class="btn btn-sm btn-danger"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+          <div class="pagination-controls">
+            <button
+              mat-icon-button
+              (click)="previousPage()"
+              [disabled]="isPreviousDisabled()"
+              class="pagination-btn"
+            >
+              &lt;
+            </button>
+            <span class="page-info">
+              Page {{ currentPage$ | async }} of {{ totalPages$ | async }}
+            </span>
+            <button
+              mat-icon-button
+              (click)="nextPage()"
+              [disabled]="isNextDisabled()"
+              class="pagination-btn"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+        <ng-template #noUsers>
+          <div class="text-center text-muted py-5">
+            <p>No users added yet. Click "Add User" to get started.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="chart-section">
+        <h2>Role Distribution</h2>
+        <div class="chart-wrapper">
+          <canvas id="roleChart" width="300" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
