@@ -130,7 +130,7 @@ private async updateChart(): Promise<void> {
         
         Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
         this.chartLoaded = true;
-        console.log('✅ Chart.js loaded successfully');
+        console.log('Chart.js loaded successfully');
       }
       const { Chart } = await import('chart.js');
 
